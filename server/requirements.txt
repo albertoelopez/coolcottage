@@ -1,3 +1,8 @@
 Flask
 Flask-Cors
 werkzeug
+supabase
+python-dotenv
+llama_parse
+firecrawl-py
+firecrawl
