@@ -1,6 +1,9 @@
 # coolcottage
 
-A brief description of what your project does.
+CoolCottage helps people determine the size of the ADU (Accessory Dwelling Unit) specifications and the laws required.
+
+<img src="https://github.com/albertoelopez/coolcottage/blob/479b87eb9a1aabdd1f75efbd46bbc0520ce18ac4/CoolCottage_ADU.png" alt="Cool Cottage" width="600" height="400">
+
 
 ## Table of Contents
 
@@ -76,3 +79,8 @@ A brief description of what your project does.
 
 ### License
     This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+
+
+
