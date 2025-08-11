@@ -1,0 +1,50 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r server/requirements.txt
+    - name: Test with pytest
+      run: |
+        echo "import pytest" > server/test_app.py
+        echo "from app import app" >> server/test_app.py
+        echo "def test_index():" >> server/test_app.py
+        echo "    client = app.test_client()" >> server/test_app.py
+        echo "    response = client.get('/')" >> server/test_app.py
+        echo "    assert response.status_code == 200" >> server/test_app.py
+        pip install pytest
+        pytest server/test_app.py
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./frontend
+    - name: Run tests
+      run: npm test -- --watchAll=false
+      working-directory: ./frontend
+    - name: Build
+      run: npm run build
+      working-directory: ./frontend
