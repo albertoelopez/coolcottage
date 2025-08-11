@@ -77,6 +77,13 @@ CoolCottage helps people determine the size of the ADU (Accessory Dwelling Unit)
 5. Push to the branch (git push origin feature-branch).
 6. Create a new Pull Request.
 
+### CI/CD
+
+This project uses GitHub Actions for CI/CD. The pipeline is defined in `.github/workflows/`.
+
+- **`ci.yml`**: This workflow runs on every push to `main` and on every pull request. It builds and tests both the frontend and backend.
+- **`release.yml`**: This workflow runs when a new tag is pushed (e.g., `v1.0.0`). It builds the application and creates a GitHub Release.
+
 ### License
     This project is licensed under the MIT License - see the LICENSE file for details.
 
